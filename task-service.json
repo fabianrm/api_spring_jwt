@@ -1,0 +1,686 @@
+{
+	"info": {
+		"_postman_id": "bf4dcff2-1869-43ea-b055-bdf001ba59eb",
+		"name": "task-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6246033"
+	},
+	"item": [
+		{
+			"name": "tasks",
+			"item": [
+				{
+					"name": "Get All Tasks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ1c3VhcmlvMUBleGFtcGxlLmNvbSIsImlhdCI6MTcwNjc2NTkyMCwiZXhwIjoxNzA2NzgzOTIwfQ.h2w-kPWAiVJyn36FhegbI2qUV5jKOjmJ2zVwKDn5P6Qbv6LC3JvFqi4OmFhdam82",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/tasks?projectName=React",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "projectId",
+									"value": "12",
+									"disabled": true
+								},
+								{
+									"key": "projectName",
+									"value": "React"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/tasks/22",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"tasks",
+								"22"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwiaWF0IjoxNzA2ODA2MTg2LCJleHAiOjE3MDY4MjQxODZ9.5dB32FpuVHaWavmPdGdI4-XugyiZdPz-lNspg4oCHflA5dFJhQuNPWTNRRLpLfQt",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Tarea importante 20\",\r\n  \"description\": \"Esta es una tarea muy importante que debe completarse pronto 20.\",\r\n  \"dueDate\": \"2024-01-29\",\r\n  \"completed\": true,\r\n  \"priority\": \"MEDIUM\",   \r\n  \"projectId\": 13 \r\n  \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/tasks",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Learn Advanced Spring Boot\",\r\n  \"description\": \"Study the advanced concepts of Spring Boot.\",\r\n  \"dueDate\": \"2024-02-15\",\r\n  \"priority\": \"HIGH\",\r\n  \"projectId\": 12  \r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/tasks/23",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"tasks",
+								"23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete Task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/tasks/1/complete",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"tasks",
+								"1",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ1c3VhcmlvQGV4YW1wbGUuY29tIiwiaWF0IjoxNzA2ODA2MTg2LCJleHAiOjE3MDY4MjQxODZ9.5dB32FpuVHaWavmPdGdI4-XugyiZdPz-lNspg4oCHflA5dFJhQuNPWTNRRLpLfQt",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/tasks/2",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"tasks",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "By Date Range",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/tasks/byDateRange?startDate=2024-01-01&endDate=2024-02-15",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"tasks",
+								"byDateRange"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2024-01-01"
+								},
+								{
+									"key": "endDate",
+									"value": "2024-02-15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "By Priority",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/tasks/byPriority?priority=MEDIUM",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"tasks",
+								"byPriority"
+							],
+							"query": [
+								{
+									"key": "priority",
+									"value": "MEDIUM"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mark Completed",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/tasks/4/markCompleted",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"tasks",
+								"4",
+								"markCompleted"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task Report by Project",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/tasks/report/by-project",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"tasks",
+								"report",
+								"by-project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Task - Invalid Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Test\",\r\n    \"description\": \"Esta es una descripción muy larga que excede el límite de 500 caracteres. Imagina que este texto sigue y sigue, superando los 500 caracteres permitidos por la validación establecida en la clase TaskRequest. Continúa extendiéndose más allá del límite, lo que debería desencadenar un error de validación cuando se intente procesar esta solicitud.Esta es una descripción muy larga que excede el límite de 500 caracteres.\",\r\n    \"dueDate\": \"2024-02-30\",\r\n    \"priority\": \"MEDIUM\",   \r\n    \"projectId\": 13 \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/tasks",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "projects",
+			"item": [
+				{
+					"name": "Create Project",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Microservicios\",\r\n    \"userId\": 3\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/projects",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Project",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Proyecto Angular\",\r\n    \"userId\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/projects/10",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"projects",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Project",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/projects/6",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"projects",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/projects/9",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"projects",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/projects",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Projects By Name Containing",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/projects/search?name=Proyecto",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"projects",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Proyecto"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"usuario4@example.com\",\r\n    \"password\": \"contraseñaSegura125\",\r\n    \"firstName\": \"Maria\",\r\n    \"lastName\": \"Pérez\",\r\n    \"dni\": \"12345635\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/users",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"nuevoemail@example.com\",\r\n  \"password\": \"nuevopassword\",\r\n  \"firstName\": \"Nuevo\",\r\n  \"lastName\": \"Usuario\",\r\n  \"dni\": \"12345678\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/users/5",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"users",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/users",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/users/5",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"users",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/users/5",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"users",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "project assignments",
+			"item": [
+				{
+					"name": "Create Assignment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projectId\": 7,\r\n    \"userId\": 3,\r\n    \"assignedDate\": \"2024-03-01\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/project-assignments",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"project-assignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Assignment Procedure",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projectId\": 7,\r\n    \"userId\": 4,\r\n    \"assignedDate\": \"2024-03-11\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/project-assignments",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"project-assignments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"usuario216@example.com\",\r\n    \"password\": \"password163212\",\r\n    \"firstName\": \"Nombre\",\r\n    \"lastName\": \"Apellido\",\r\n    \"dni\": \"12345646\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/auth/signup",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"usuario216@example.com\",\r\n    \"password\": \"password163212\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/auth/signin",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base-url",
+			"value": "http://localhost:8080/api/v1",
+			"type": "string"
+		}
+	]
+}
